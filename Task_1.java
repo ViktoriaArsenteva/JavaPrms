@@ -1,18 +1,31 @@
-//Написать программу вычисления n-ого треугольного числа
+//Написать программу, показывающую последовательность действий для игры “Ханойская башня”
 
 import java.util.Scanner;
 
 public class Task_1 {
+
     public static void main(String[] args) {
-        double res = findnumber();
-        System.out.printf("Треугольное число для заданного элемента элемента = "+ res);   
-    }
-    public static double findnumber() {
-        Scanner iS = new Scanner(System.in);
-        System.out.print("Введите число n для вычисления n-ого треугольного числа: ");
-        int num = iS.nextInt();
-        double result = (num * 1/2 * (num + 1));
-        return result;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Введите количество дисков: ");
+        int n = input.nextInt();
+        char a = 'A';
+        char b = 'B';
+        char c = 'C';
         
+        hanoi(n, a, b, c);
+    }
+
+    public static void hanoi(int n, char a, char b, char c) {
+        if (n == 1) {
+            print(1, a, c);
+        } else {
+            hanoi(n - 1, a, c, b);
+            print(n, a, c);
+            hanoi(n - 1, b, a, c);
+        }
+    }
+
+    public static void print(int n, char i, char j) {
+        System.out.println(i + " -> " + j);
     }
 }
