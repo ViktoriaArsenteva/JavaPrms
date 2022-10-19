@@ -1,3 +1,4 @@
+package Lesson_2;
 //Реализовать алгоритм сортировки вставками
 
 import java.util.Scanner;
