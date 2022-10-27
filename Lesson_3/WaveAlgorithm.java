@@ -66,7 +66,7 @@ public class WaveAlgorithm
     end[1] = iS.nextInt();
     labyr(start,end, row, col);
   }
-  
+
   public static void labyr(int start[],int end[],int row, int col) 
   {
     int laby[][] = new int[row][col]; 
@@ -122,6 +122,7 @@ public class WaveAlgorithm
       start[0]=remove();
       start[1]=remove();
     }
+  
       
       clear();
       answer[end[0]][end[1]] = laby[end[0]][end[1]];
@@ -142,13 +143,13 @@ public class WaveAlgorithm
           add(end[0]-1);
           add(end[1]);
       }
-      else if ((end[1] + 1 < col) & (laby2[end[0]+1][end[1]+1]-laby2[end[0]+1][end[1]+1] == 1))
+      else if ((end[1] + 1 < col) & (laby2[end[0]+1][end[1]+1]-laby2[end[0]+1][end[1]+2] == 1))
       {
           answer[end[0]][end[1] + 1] = laby[end[0]][end[1] + 1];
           add(end[0]);
           add(end[1] + 1);
       }
-      else if ((end[0] + 1 < row) & (laby2[end[0]+1][end[1]+1]-laby2[end[0]+1][end[1]+1] == 1))
+      else if ((end[0] + 1 < row) & (laby2[end[0]+1][end[1]+1]-laby2[end[0]+2][end[1]+1] == 1))
       {
           answer[end[0] + 1][end[1]] = laby[end[0] + 1][end[1]];
           add(end[0] + 1);
@@ -169,11 +170,10 @@ public class WaveAlgorithm
       {  
         for (int j = 0; j < col ; j++) 
         {
-            System.out.print(" " + answer[i][j] + " "); 
+            System.out.print("  " + answer[i][j] + "  "); 
         }
         System.out.println();
       }
-      System.out.println();
     }
    
     
